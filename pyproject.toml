@@ -7,9 +7,7 @@ name = "discoeb"
 version = "0.1.0"
 dependencies = [
     "diffrax==0.4.1",
-    "equinox",
-    "jaxtyping",
-    "jax_cosmo"
+    "equinox"
 ]
 authors = [
     { name = "Oliver Hahn", email = "oliver.hahn@univie.ac.at" },
