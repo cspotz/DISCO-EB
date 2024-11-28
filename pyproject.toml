@@ -32,6 +32,6 @@ dev = ["pytest", "pytest-benchmark"]
 docs = ["sphinx", "nbsphinx"]
 
 [project.urls]
-Homepage = "https://github.com/ohahn/DISCO-EB"
-Issues = "https://github.com/ohahn/DISCO-EB/issues"
-Repository = "https://github.com/ohahn/DISCO-EB.git"
+Homepage = "https://github.com/cspotz/DISCO-EB"
+Issues = "https://github.com/cspotz/DISCO-EB/issues"
+Repository = "https://github.com/cspotz/DISCO-EB.git"
