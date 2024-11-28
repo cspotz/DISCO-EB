@@ -1121,8 +1121,8 @@ def power_Kaiser( *, y : jax.Array, kmodes : jax.Array, bias : float, mu_samplin
     
     if smooth_dlogk is None:
         fac = 2 * jnp.pi**2 * param['A_s']
-        deltam = jnp.sqrt(fac *(kmodes/param['k_p'])**(param['n_s'] - 1) * kmodes**(-3) * * (1 + param['A_lin'] * jnp.exp(-param['alpha_lin'] * param['kf']) * jnp.cos(2 * k/param['kf'] + jnp.pi/2))) * y[:,4]
-        thetam = jnp.sqrt(fac *(kmodes/param['k_p'])**(param['n_s'] - 1) * kmodes**(-3) * * (1 + param['A_lin'] * jnp.exp(-param['alpha_lin'] * param['kf']) * jnp.cos(2 * k/param['kf'] + jnp.pi/2))) * y[:,5]
+        deltam = jnp.sqrt(fac *(kmodes/param['k_p'])**(param['n_s'] - 1) * kmodes**(-3) * (1 + param['A_lin'] * jnp.exp(-param['alpha_lin'] * param['kf']) * jnp.cos(2 * k/param['kf'] + jnp.pi/2))) * y[:,4]
+        thetam = jnp.sqrt(fac *(kmodes/param['k_p'])**(param['n_s'] - 1) * kmodes**(-3) * (1 + param['A_lin'] * jnp.exp(-param['alpha_lin'] * param['kf']) * jnp.cos(2 * k/param['kf'] + jnp.pi/2))) * y[:,5]
     else:
         Pdelta = get_power_smoothed( y=y, k=kmodes, dlogk=smooth_dlogk, idx=4, param=param )
         Ptheta = get_power_smoothed( y=y, k=kmodes, dlogk=smooth_dlogk, idx=5, param=param )
@@ -1149,8 +1149,8 @@ def power_multipoles( *, y : jnp.ndarray, kmodes : jnp.ndarray, b : float, param
         P4 (array_like)      : hexadecapole
     """
     fac = 2 * jnp.pi**2 * param['A_s']
-    deltam = jnp.sqrt(fac *(kmodes/param['k_p'])**(param['n_s'] - 1) * kmodes**(-3) * * (1 + param['A_lin'] * jnp.exp(-param['alpha_lin'] * param['kf']) * jnp.cos(2 * k/param['kf'] + jnp.pi/2))) * y[:,4]
-    thetam = jnp.sqrt(fac *(kmodes/param['k_p'])**(param['n_s'] - 1) * kmodes**(-3) * * (1 + param['A_lin'] * jnp.exp(-param['alpha_lin'] * param['kf']) * jnp.cos(2 * k/param['kf'] + jnp.pi/2))) * y[:,5]
+    deltam = jnp.sqrt(fac *(kmodes/param['k_p'])**(param['n_s'] - 1) * kmodes**(-3) * (1 + param['A_lin'] * jnp.exp(-param['alpha_lin'] * param['kf']) * jnp.cos(2 * k/param['kf'] + jnp.pi/2))) * y[:,4]
+    thetam = jnp.sqrt(fac *(kmodes/param['k_p'])**(param['n_s'] - 1) * kmodes**(-3) * (1 + param['A_lin'] * jnp.exp(-param['alpha_lin'] * param['kf']) * jnp.cos(2 * k/param['kf'] + jnp.pi/2))) * y[:,5]
 
     # powerspectrum multipoles
     P0 = b**2 * deltam**2 - 2*b/3 * deltam*thetam + 1/5*thetam**2
